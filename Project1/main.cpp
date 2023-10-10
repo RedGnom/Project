@@ -16,13 +16,28 @@ void showarr(int* const arr, int const size) {
 	
 
 }
+void addback(int *&arr, int &size, int const value)
+{
+	int *newarr = new int[size+1];
+	for (int i = 0; i < size; i++) {
+		newarr[i] = arr[i];
+	}
+	newarr[size] = value;
+	size++;
+	delete[] arr;
+	arr = newarr;
+
+
+}
 
 int main() {
 	srand(time(NULL));
 	int size;
 	cin >> size;
-	int* arr = new int;
+	int *arr = new int[size];
 	fillarr(arr, size);
 	showarr(arr, size);
-	delete[] arr;
+	addback(arr, size, 111);
+	showarr(arr, size);
+	delete[]arr;
 }
