@@ -33,11 +33,13 @@ void addback(int *&arr, int &size, int const value)
 int main() {
 	srand(time(NULL));
 	int size;
+	int value;
+	cin >> value;
 	cin >> size;
 	int *arr = new int[size];
 	fillarr(arr, size);
 	showarr(arr, size);
-	addback(arr, size, 111);
+	addback(arr, size, value);
 	showarr(arr, size);
 	delete[]arr;
 }
